@@ -1,0 +1,29 @@
+#change
+resources:
+  jobs:
+    sales_pipeline:
+
+      name: Sales Pipeline
+
+      tasks:
+
+        - task_key: bronze
+
+          spark_python_task:
+            python_file: ../src/bronze.py
+
+        - task_key: silver
+
+          depends_on:
+            - task_key: bronze
+
+          spark_python_task:
+            python_file: ../src/silver.py
+
+        - task_key: gold
+
+          depends_on:
+            - task_key: silver
+
+          spark_python_task:
+            python_file: ../src/gold.py
