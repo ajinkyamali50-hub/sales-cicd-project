@@ -22,4 +22,4 @@ df.write \
     .mode("overwrite") \
     .saveAsTable("sales_catalog.silver.sales_silver")
 
-print("Silver table created successfully.")
+print("Silver table created successfullys.")
